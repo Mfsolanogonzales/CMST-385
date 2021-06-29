@@ -1,0 +1,32 @@
+
+
+on:
+
+  push:
+
+    branches:
+
+      - master
+
+jobs:
+
+  build-and-deploy:
+
+    runs-on: windows-latest
+
+     steps:
+
+    - uses: actions/checkout@master
+
+    - name: Deploy HTML Files to AppService - CMST385
+
+      uses: azure/webapps-deploy@v1
+
+      with:
+
+        app-name: CMST385-msolanogonzales
+
+        slot-name: 'production'
+
+
+        publish-profile: ${{ secrets.CMST-385}}
